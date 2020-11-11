@@ -1,4 +1,4 @@
-name:
+name: doc
 on:
     push:
         branches:
@@ -18,8 +18,8 @@ jobs:
               run: npm install
 
             # 部署
-            - name: Deploy
-              uses: easingthemes/ssh-deploy@v2.0.7
+            - name: ssh deploy
+              uses: easingthemes/ssh-deploy@v2.1.5
               env:
                   SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_SERVER_ACCESS_TOKEN }}
                   ARGS: '-avz --delete'
@@ -27,4 +27,4 @@ jobs:
                   # ${{ ... }} 会应用你在对应项目设置中，配置的对应serets的键值信息，从而保护私密信息不被看到
                   REMOTE_HOST: ${{ secrets.HOST }}
                   REMOTE_USER: ${{ secrets.USERNAME }}
-                  TARGET: '/root/vue3Doc/'
+                  TARGET: '/home/vue3-doc/'
