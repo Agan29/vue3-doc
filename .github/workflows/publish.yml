@@ -13,7 +13,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@master
 
-            # 为了将资源部署到云服务器，此处下载一个ssh传资料的工具
             - name: Install
               run: npm install
 
